@@ -4,8 +4,17 @@ import sys
 
 args = sys.argv[1:]
 
-k = 0x0
-i = 0x0
+
+if len(args)==0:
+	print("No ingreso la Key\nUSO:\n->python mugy.py key iv  (retorna los primeros 16 numeros de la serie) \n->python mugy.py key iv archivoAEnctriptar/DesEncriptar \n(retorna archivo encriptado/desenctriptado) ")
+	exit()
+
+if len(args)==1:
+	print("No ingreso iv \nUSO:\n->python mugy.py key iv  (retorna los primeros 16 numeros de la serie) \n->python mugy.py key iv archivoAEnctriptar/DesEncriptar \n(retorna archivo encriptado/desenctriptado) ")
+	exit()
+
+k=int(args[0])
+i=int(args[1])
 
 a=[0,0,0]
 b=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -151,13 +160,7 @@ for x in range(0, 16):
 	a,b=update(a,b)
 
 
-if len(args)==0:
-	print("No ingreso la Key\nUSO:\n->python mugy.py key iv  (retorna los primeros 16 numeros de la serie) \n->python mugy.py key iv archivoAEnctriptar/DesEncriptar \n(retorna archivo encriptado/desenctriptado) ")
-	exit()
 
-if len(args)==1:
-	print("No ingreso iv \nUSO:\n->python mugy.py key iv  (retorna los primeros 16 numeros de la serie) \n->python mugy.py key iv archivoAEnctriptar/DesEncriptar \n(retorna archivo encriptado/desenctriptado) ")
-	exit()
 
 if len(args)==3:
 	c = bytearray(open(args[2], 'rb').read())
