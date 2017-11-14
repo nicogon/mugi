@@ -165,14 +165,14 @@ for x in range(0, 16):
 if len(args)==3:
 	c = bytearray(open(args[2], 'rb').read())
 	for i in range(len(c)):
-		c[i] ^= dameByte(a[2],i%8)
+		c[i] ^= dameByte(a[2],7-i%8)
     	if i%8==7:
     		a,b=update(a,b)
 	open(args[2], 'wb').write(c)
 elif len(args)==4:
 	c = bytearray(open(args[2], 'rb').read())
 	for i in range(len(c)-int(args[3])):
-		c[i+int(args[3])] ^= dameByte(a[2],i%8)
+		c[i+int(args[3])] ^= dameByte(a[2],7-i%8)
 		if (i%8)==7:
 			a,b=update(a,b)
 	open(args[2], 'wb').write(c)
