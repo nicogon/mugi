@@ -61,10 +61,6 @@ C2 = 0x3C6EF372FE94F82B;
 
 
 
-key=0
-iv=0
-
-
 def dameByte(target, n):
 	return ((target&((0xFF<<(8*n))))>>(8*n))
 
